@@ -1,0 +1,46 @@
+<section class="rounded">
+    <div class="container py-5 ">
+      <div class="row d-flex justify-content-center align-items-center ">
+        <div class="col col-xl-10">
+          <div class="card">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block" style="background-image: url(../assets/flores-login.jpg);">
+                
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+  
+                  <form>
+  
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                     
+                      <span class="h1 fw-bold mb-0 text-center" style="font-family: Montserrat;">Iniciar Sesión</span>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <label class="form-label" style="font-family: Montserrat;">Correo electrónico</label>
+                      <input type="email" class="form-control" [(ngModel)]="email" required="required"  name="email">
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <label class="form-label" style="font-family: Montserrat;">Contraseña</label>
+                      <input type="password" class="form-control" [(ngModel)]="password"  required="required"  name="password">
+                    </div>
+  
+                    <div class="pt-1 mb-4">
+                      <button (click)="getUser()" class="btn btn-lg btn-block" style="background-color: #af68d4; color: white; font-family: Montserrat;" type="button" >Iniciar Sesión</button>
+                    </div>
+  
+                    
+                    <p class=" pb-lg-2" style="color: #000000;font-family: Montserrat;" >No tiene cuenta? <a href="#!" style="color: #af68d4;font-family: Montserrat; text-decoration: none;" > Registresé aqui</a></p>
+                    <a class="mb-5" href="#!" style="color: #af68d4;font-family: Montserrat; text-decoration: none;">Olvidó su contraseña?</a>
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
