@@ -13,10 +13,11 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { SociosNuevoComponent } from './vistas/socios-nuevo/socios-nuevo.component';
 import { SociosTablaPruebaComponent } from './vistas/socios-tabla-prueba/socios-tabla-prueba.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { UploadImgComponent } from './vistas/upload-img/upload-img.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MatInputModule } from '@angular/material/input';
     SociosComponent,
     NavbarComponent,
     SociosNuevoComponent,
-    SociosTablaPruebaComponent
+    SociosTablaPruebaComponent,
+    UploadImgComponent
   ],
   imports: [
     BrowserModule,
