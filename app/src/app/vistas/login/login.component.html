@@ -26,11 +26,11 @@
                       <label class="form-label" style="font-family: Montserrat;">Contraseña</label>
                       <input type="password" class="form-control" [(ngModel)]="password"  required="required"  name="password">
                     </div>
-  
+                    <input type="file"  name="image" id="image"  accept="image/*" (change)="capturarFile($event)"  >
                     <div class="pt-1 mb-4">
                       <button (click)="getUser()" class="btn btn-lg btn-block" style="background-color: #af68d4; color: white; font-family: Montserrat;" type="button" >Iniciar Sesión</button>
                     </div>
-  
+                    
                     
                     <p class=" pb-lg-2" style="color: #000000;font-family: Montserrat;" >No tiene cuenta? <a href="#!" style="color: #af68d4;font-family: Montserrat; text-decoration: none;" > Registresé aqui</a></p>
                     <a class="mb-5" href="#!" style="color: #af68d4;font-family: Montserrat; text-decoration: none;">Olvidó su contraseña?</a>

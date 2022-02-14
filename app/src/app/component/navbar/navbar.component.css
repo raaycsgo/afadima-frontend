@@ -1,0 +1,129 @@
+body{
+  background-color: grey;
+}
+.navbarBody{
+  background-color: rgba(255, 255, 255, 0);
+
+
+  transition: 1s;
+  font-family:Montserrat;
+
+}
+
+
+
+#logo{
+  margin-left: 30px;
+  height: 60px;
+}
+
+
+#navbarNavDropdown{
+justify-content: right;
+margin-right: 30px;
+}
+.navbarLink{
+  color: #333333;
+  transition: 1s;
+
+}
+.navbarLink2{
+  color: #333333;
+  transition: 1s;
+}
+
+.navbarLink3{
+  color: #333333;
+  transition: 1s;
+}
+.navbarLink4{
+  color: #333333;
+  transition: 1s;
+}
+
+
+.itemDrop{
+  background-color: rgba(255, 255, 255, 0);
+  transition: 1s;
+
+}
+
+
+
+
+
+/*  cambios de clase*/
+
+.itemDropChange{
+  background-color : #872ab8 !important;
+  color: white;
+  transition: 0.5s;
+
+}
+
+#nav-link:hover{
+  color: #ff6602;
+  transition:0.5s
+}
+.change {
+  background-color : #872ab8 !important;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  transition: 1s;
+}
+.navbarLinkChange{
+  color: #ffffff;
+  font-family:Montserrat;
+}
+
+a.nav-link.navbarLink:hover{
+  background-color: #872ab8;
+  color: white;
+}
+a.nav-link.navbarLink2:hover{
+  background-color: #872ab8;
+  color: white;
+}
+a.nav-link.navbarLink3:hover{
+  background-color: #872ab8;
+  color: white;
+}
+a.nav-link.navbarLinkChange:hover{
+  background-color: white;
+  color:#872ab8;
+  transition: 1s;
+}
+a.nav-link.dropdown-toggle.navbarLink4:hover{
+  background-color: #872ab8;
+  color: white;
+}
+
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #872ab8;
+}
+
+.dropdown-item.itemDrop:hover{
+  background-color: #872ab8;
+  color: white;
+  transition: 1s;
+}
+.dropdown-item.itemDrop {
+  padding-left: 10px;
+  width: 158px !important;
+  padding-right: 0;
+  margin-left: 12px;
+}
+.dropdown-menu.show {
+  padding: 0 !important;
+}
+.hover-a-dropmenu:hover{
+  color: white;
+  transition: 1s;
+}
+.hover-a-dropmenu{
+  color: black;
+}
