@@ -4,11 +4,13 @@ import axios from 'axios';
 @Component({
   selector: 'app-socios-tabla',
   templateUrl: './socios.component.html',
-  styleUrls: ['./socios.component.css']
+  styleUrls: ['./socios.component.css'],
+
 })
 export class SociosComponent implements OnInit {
   
   constructor() {}
+   searchText:any;
    apiUrl:string  = 'http://35.180.22.126:8000/api/';
    socios:any = [];
 

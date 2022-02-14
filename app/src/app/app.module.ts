@@ -11,6 +11,13 @@ import { FormsModule } from '@angular/forms';
 import { SociosComponent } from './vistas/socios-tabla/socios.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { SociosNuevoComponent } from './vistas/socios-nuevo/socios-nuevo.component';
+import { SociosTablaPruebaComponent } from './vistas/socios-tabla-prueba/socios-tabla-prueba.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -20,12 +27,20 @@ import { SociosNuevoComponent } from './vistas/socios-nuevo/socios-nuevo.compone
     LoginComponent,
     SociosComponent,
     NavbarComponent,
-    SociosNuevoComponent
+    SociosNuevoComponent,
+    SociosTablaPruebaComponent
   ],
   imports: [
-    FormsModule,
     BrowserModule,
-    AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
