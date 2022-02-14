@@ -17,9 +17,9 @@ export class SociosTablaPruebaComponent implements AfterViewInit {
   socios:any = [];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  
-  public doFilter = (value: string) => {
-    this.dataSource.filter = value.trim().toLocaleLowerCase();
+
+  public doFilter = (value: any) => {
+    this.dataSource.filter = value.target.value.trim().toLocaleLowerCase();
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
