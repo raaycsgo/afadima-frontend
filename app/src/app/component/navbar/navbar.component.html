@@ -1,11 +1,12 @@
-
-<nav class="navbar navbar-expand-lg " id="navbarBody" (window:scroll)="Scroll()"   [ngClass]="navbarBody">
+<nav class="navbar navbar-expand-lg " id="navbarBody" (window:scroll)="Scroll()" [ngClass]="navbarBody">
   <div class="collapse navbar-collapse" id="navbarCollapse">
-  <a class="navbar-brand" href="#"><img src="{{arrayObjetos[0]}}" id="logo"></a>
+    <a class="navbar-brand" href="#"><img src="{{arrayObjetos[0]}}" id="logo"></a>
   </div>
-  <a class="navbar-toggler" href="#"><img src="../assets/navbar/AFADIMA-logo-peque.png" data-toggle="collapse" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" data-target="#logo" ></a>
-  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" id="button">
-    <span class="navbar-toggler-icon" style="background-image: url(../assets/navbar/menu.png);" ></span>
+  <a class="navbar-toggler" href="#"><img src="../assets/navbar/AFADIMA-logo-peque.png" data-toggle="collapse"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" data-target="#logo"></a>
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" id="button">
+    <span class="navbar-toggler-icon" style="background-image: url(../assets/navbar/menu.png);"></span>
   </button>
 
 
@@ -14,45 +15,54 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" [ngClass]="navbarLink4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (mouseover)="hoverLink4()" (mouseout)="normalLink4()">
-        ADMIN
+        <a class="nav-link dropdown-toggle" href="#" [ngClass]="navbarLink4" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" (mouseover)="hoverLink4()" (mouseout)="normalLink4()">
+          ADMIN
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="">
-         <div class="row">
-                     <div class="dropdown-item"  [ngClass]="itemDrop"(mouseover)="hover()" (mouseout)="normal()"><a href="" class="hover-a-dropmenu"style="text-decoration: none;">NUMERARIO</a></div>
-                    </div>
-                    <div class="row">
-                     <div class="dropdown-item" [ngClass]="itemDrop2"(mouseover)="hover2()" (mouseout)="normal2()"><a href="" class="hover-a-dropmenu"style="text-decoration: none;">NOTICIAS</a></div>
-                     </div>
-                     <div class="row">
+          <div class="row">
+            <div class="dropdown-item" [ngClass]="itemDrop" (mouseover)="hover()" (mouseout)="normal()"><a routerLink="/admin/numerario"
+                class="hover-a-dropmenu" style="text-decoration: none;">NUMERARIO</a></div>
+          </div>
+          <div class="row">
+            <div class="dropdown-item" [ngClass]="itemDrop2" (mouseover)="hover2()" (mouseout)="normal2()"><a routerLink="/admin/noticias"
+                class="hover-a-dropmenu" style="text-decoration: none;">NOTICIAS</a></div>
+          </div>
+          <div class="row">
 
-                      <div class="dropdown-item"  [ngClass]="itemDrop3" (mouseover)="hover3()" (mouseout)="normal3()"><a href="" class="hover-a-dropmenu"style="text-decoration: none;">SERVICIOS</a></div>
-                      </div>
+            <div class="dropdown-item" [ngClass]="itemDrop3" (mouseover)="hover3()" (mouseout)="normal3()"><a routerLink="/admin/servicios"
+                class="hover-a-dropmenu" style="text-decoration: none;">SERVICIOS</a></div>
+          </div>
 
-                      <div class="row">
+          <div class="row">
 
-                        <div class="dropdown-item" [ngClass]="itemDrop4"(mouseover)="hover4()" (mouseout)="normal4()"><a href="" class="hover-a-dropmenu"style="text-decoration: none;">SOCIOS</a></div>
-                        </div>
+            <div class="dropdown-item" [ngClass]="itemDrop4" (mouseover)="hover4()" (mouseout)="normal4()"><a routerLink="/admin/socios"
+                class="hover-a-dropmenu" style="text-decoration: none;">SOCIOS</a></div>
+          </div>
 
-                        <div class="row">
+          <div class="row">
 
-                          <div class="dropdown-item"  [ngClass]="itemDrop5"(mouseover)="hover5()" (mouseout)="normal5()"><a href="" class="hover-a-dropmenu"style="text-decoration: none;">DISCAPACIDAD</a></div>
-                          </div>
-                    </div>
+            <div class="dropdown-item" [ngClass]="itemDrop5" (mouseover)="hover5()" (mouseout)="normal5()"><a routerLink="/admin/discapacidad"
+                class="hover-a-dropmenu" style="text-decoration: none;">DISCAPACIDAD</a></div>
+          </div>
+        </div>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#" [ngClass]="navbarLink" (mouseover)="hoverLink()" (mouseout)="normalLink()">NOTICIAS</a>
+        <a class="nav-link" routerLink="/noticias" [ngClass]="navbarLink" (mouseover)="hoverLink()"
+          (mouseout)="normalLink()">NOTICIAS</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#" [ngClass]="navbarLink2" (mouseover)="hoverLink2()" (mouseout)="normalLink2()">SERVICIOS</a>
+        <a class="nav-link" routerLink="/servicios" [ngClass]="navbarLink2" (mouseover)="hoverLink2()"
+          (mouseout)="normalLink2()">SERVICIOS</a>
       </li>
-
+    
       <li class="nav-item active">
-        <a class="nav-link" href="#"  [ngClass]="navbarLink3" (mouseover)="hoverLink3()" (mouseout)="normalLink3()">PRODUCTOS</a>
+        <a class="nav-link" routerLink="/productos" [ngClass]="navbarLink3" (mouseover)="hoverLink3()"
+          (mouseout)="normalLink3()">PRODUCTOS</a>
       </li>
 
 
-     
+
     </ul>
   </div>
 </nav>
@@ -60,5 +70,3 @@
 <div>
 
 </div>
-
-

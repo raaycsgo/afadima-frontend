@@ -4,3 +4,10 @@
 .section-form{
     margin-top: -5%;
 }
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+   
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #872ab8;
+}
