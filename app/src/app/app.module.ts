@@ -8,10 +8,9 @@ import { CardsComponent } from './vistas/noticiasAll/noticias/cards.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { LoginComponent } from './vistas/login/login.component';
 import { FormsModule } from '@angular/forms';
-import { SociosComponent } from './vistas/socios-tabla/socios.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
-import { SociosNuevoComponent } from './vistas/sociosAll/socios-nuevo/socios-nuevo.component';
-import { SociosTablaPruebaComponent } from './vistas/sociosAll/socios-tabla-prueba/socios-tabla-prueba.component';
+import { SociosNuevoComponent } from './vistas/sociosAll/socios-new/socios-nuevo.component';
+import { SociosTablaPruebaComponent } from './vistas/sociosAll/socios-tabla/socios-tabla-prueba.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -35,6 +34,13 @@ import { PaginaUserComponent } from './vistas/pagina-user/pagina-user.component'
 import { DiscapacidadTablaComponent } from './vistas/discapacidadAll/discapacidad-tabla/discapacidad-tabla.component';
 import { DiscapacidadEditComponent } from './vistas/discapacidadAll/discapacidad-edit/discapacidad-edit.component';
 import { DiscapacidadNewComponent } from './vistas/discapacidadAll/discapacidad-new/discapacidad-new.component';
+import { SociosEditComponent } from './vistas/sociosAll/socios-edit/socios-edit.component';
+import { ProductoCardsComponent } from './vistas/productosAll/producto-cards/producto-cards.component';
+import { ProductoShowComponent } from './vistas/productosAll/producto-show/producto-show.component';
+import { ProductoTablaComponent } from './vistas/productosAll/producto-tabla/producto-tabla.component';
+import { ProductoNewComponent } from './vistas/productosAll/producto-new/producto-new.component';
+import { ProductoEditComponent } from './vistas/productosAll/producto-edit/producto-edit.component';
+import { RegisterComponent } from './vistas/register/register.component';
 
 
 @NgModule({
@@ -43,7 +49,6 @@ import { DiscapacidadNewComponent } from './vistas/discapacidadAll/discapacidad-
     CardsComponent,
     FooterComponent,
     LoginComponent,
-    SociosComponent,
     NavbarComponent,
     SociosNuevoComponent,
     SociosTablaPruebaComponent,
@@ -64,7 +69,14 @@ import { DiscapacidadNewComponent } from './vistas/discapacidadAll/discapacidad-
     PaginaUserComponent,
     DiscapacidadTablaComponent,
     DiscapacidadEditComponent,
-    DiscapacidadNewComponent
+    DiscapacidadNewComponent,
+    SociosEditComponent,
+    ProductoCardsComponent,
+    ProductoShowComponent,
+    ProductoTablaComponent,
+    ProductoNewComponent,
+    ProductoEditComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
