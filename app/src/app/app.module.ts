@@ -76,7 +76,7 @@ import { RegisterComponent } from './vistas/register/register.component';
     ProductoTablaComponent,
     ProductoNewComponent,
     ProductoEditComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

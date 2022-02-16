@@ -51,7 +51,7 @@ const routes: Routes = [
   { path: 'admin/servicios', component: ServiciosTablaComponent },
   { path: 'admin/socios', component: SociosTablaPruebaComponent },
   { path: 'admin/socios/new', component: SociosNuevoComponent },
-  { path: 'admin/socios/edit', component: SociosEditComponent },
+  { path: 'admin/socios/edit/:numero', component: SociosEditComponent },
   { path: 'productos', component: ProductoCardsComponent },
   { path: 'productos/numero', component: ProductoShowComponent },
   { path: 'admin/productos/edit/numero', component: ProductoEditComponent },

@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   password : string = '';
   codeError: number = 0;
   errorMessage: string = '';
-
+  
   constructor() {}
   
   getUser() {

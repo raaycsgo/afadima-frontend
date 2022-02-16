@@ -1,7 +1,10 @@
-<section class="rounded ">
+<section class="rounded vh-100 mt-5 section-login">
     <div class="container py-5 ">
       <div class="row d-flex justify-content-center align-items-center ">
         <div class="col col-xl-10">
+          <div class="alert alert-danger" *ngIf="codeError != 0" role="alert">
+            {{errorMessage}}
+          </div>
           <div class="card">
             <div class="row g-0">
               <div class="col-md-6 col-lg-5 d-none d-md-block" style="background-image: url(../assets/flores-login.jpg);">
@@ -16,9 +19,7 @@
                      
                       <span class="h1 fw-bold mb-0 text-center" style="font-family: Montserrat;">Iniciar Sesión</span>
                     </div>
-                    <div class="alert alert-danger" *ngIf="codeError != 0" role="alert">
-                      {{errorMessage}}
-                    </div>
+                    
                     <div class="form-outline mb-4">
                       <label class="form-label" style="font-family: Montserrat;">Correo electrónico</label>
                       <input type="email" class="form-control" [(ngModel)]="email" required="required"  name="email">
