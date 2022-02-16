@@ -16,7 +16,7 @@ export class DiscapacidadTablaComponent implements AfterViewInit {
   socio : string = "";
   mensaje : string = "";
   respuesta : number = 3;
-  displayedColumns: string[] = ['name','actions'];
+  displayedColumns: string[] = ['id','name','actions'];
   dataSource : any;
   apiUrl:string  = 'http://35.180.22.126:8000/api/';
   socios:any = [];
@@ -49,7 +49,7 @@ export class DiscapacidadTablaComponent implements AfterViewInit {
       console.log(this.socio);
     })
   }
-  deleteSocio(idTipo: number){
+  deleteDiscapacidad(idTipo: number){
     axios.delete(this.apiUrl + 'tipoDiscapacidad/' + idTipo)
     .then((response) => {
       console.log(response);

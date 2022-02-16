@@ -1,1 +1,62 @@
-<p>discapacidad-edit works!</p>
+<section class="vh-100 section-form" style="background-color: #ffffff; font-family: Montserrat;">
+    <div class="container py-5 h-100" style="border-width: 2px;">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+                <h2 class="text-center mb-2">EDITAR DISCAPACIDAD</h2>
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-md-5 col-lg-5 d-none d-md-block"
+                            style="background-repeat: no-repeat;background-size:cover ; background-image: url(../assets/forms/discapacidad.jpg);">
+                        </div>
+                        <div class="col-md-7 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
+
+                                <form>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <label id="sectionForm" class="form-label"
+                                                for="form2Example17" style="font-size: 18px;">NOMBRE</label>
+                                            <input type="text" id="form2Example17" class="form-control"
+                                                placeholder="Escribe el nombre" value = "{{datos.name}}"[(ngModel)]="name" name="name"/>
+                                        </div>
+
+                               
+                                    </div>
+
+
+                                    <div class="pt-1 mt-3 mb-4">
+                                        <a style="background-color: #872ab8;color:white" class="btn btn-primary"
+                                            type="button" data-toggle="modal" data-target="#exampleModal">Guardar</a>
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                  <div class="modal-content">
+                                                    <div class="modal-header">
+                                                      <h5 class="modal-title" id="exampleModalLabel">¿DESEA EDITAR?</h5>
+                                                      <button type="button" class="btn-close" aria-label="Close" data-dismiss="modal">
+                                                        
+                                                      </button>
+                                                    </div>
+                                                    <div class="modal-body" style="overflow: hidden;">
+                                                      No podrá recuperar de nuevo los datos de ninguna manera.
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+                                                      <button (click) ="editar()" type="button" class="btn btn-primary" data-dismiss="modal">GUARDAR</button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                    </div>
+
+                                   
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
