@@ -44,9 +44,9 @@
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label for="inputState">ROL</label>
-                                            <select id="inputState" class="form-select select-rol">
-                                                <option selected class="opciones-formulario">Seleccionar rol <i class="fa-solid fa-angle-down"></i></option>
+                                            <label for="inputState">ROL - (ROL)</label>
+                                            <select id="inputState" class="form-select select-rol" [(ngModel)]="rol" name="rol"  >
+                                                <option selected class="opciones-formulario">Seleccionar rol </option>
                                                 <option class="opciones-formulario">SOCIO</option>
                                                 <option class="opciones-formulario">EMPLEADO</option>
                                                 <option class="opciones-formulario">USUARIO</option>
@@ -60,8 +60,8 @@
                                         </div>
                                     </div>
                                     <div class="pt-1 mt-3 mb-4">
-                                        <button style="background-color: #872ab8;color:white" class="btn "
-                                            type="button">Crear nuevo socio</button>
+                                        <a (click)="editar()"style="background-color: #872ab8;color:white" class="btn btn-primary"
+                                            type="button">Crear nuevo socio</a>
                                     </div>
                                 </form>
 

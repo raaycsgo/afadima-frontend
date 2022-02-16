@@ -8,6 +8,7 @@ import {ActivatedRoute,Params} from "@angular/router"
 })
 export class SociosEditComponent implements OnInit {
   numero : any ;
+  rol: string ="";
   constructor(private _activeRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -16,5 +17,9 @@ export class SociosEditComponent implements OnInit {
       console.log(this.numero);
   })
   
+}
+
+editar(){
+  console.log(this.rol);
 }
 }

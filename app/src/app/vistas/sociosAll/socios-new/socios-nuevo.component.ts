@@ -48,7 +48,7 @@ export class SociosNuevoComponent implements OnInit {
     });
   }
   verificarCampos(){
-    if(this.email === '' || this.phone === ''|| this.address === '' || this.name == '' || this.surnames == '' || this.password == ''){
+    if(this.email == '' || this.phone == ''|| this.address == '' || this.name == '' || this.surnames == '' || this.password == ''){
       this.textolleno = 1;
      }
   }
