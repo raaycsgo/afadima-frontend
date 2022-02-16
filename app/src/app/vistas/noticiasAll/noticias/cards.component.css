@@ -1,3 +1,7 @@
+.cards-container {
+    z-index: 1;
+}
+
 h5.card-title {
     text-align: center;
     font-family: montserrat;
