@@ -29,4 +29,6 @@ table {
         overflow: hidden;
         vertical-align: middle;
     }
-  
+  .basura{
+    margin-top: -8px;
+  }

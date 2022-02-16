@@ -3,7 +3,6 @@
     <mat-form-field fxFlex="40%">
       <input matInput type="text" (keyup)="doFilter($event)" placeholder="Filtrar">
     </mat-form-field>
-    <a routerLink="/admin/socios/new" class="btn btn-primary align-rigth">Crear nuevo</a>
   </div>
     <div class="mat-elevation-z2">
     
@@ -15,7 +14,6 @@
             <th mat-header-cell *matHeaderCellDef>ID</th>
             <td mat-cell *matCellDef="let element"> {{element.socioId}} </td>
           </ng-container>
-      
           <!-- Name Column -->
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> NOMBRE</th>
@@ -27,7 +25,7 @@
             <th mat-header-cell *matHeaderCellDef> APELLIDOS</th>
             <td mat-cell *matCellDef="let element"> {{element.surnames}} </td>
           </ng-container>
-      
+        
           <!-- Symbol Column -->
           <ng-container matColumnDef="phone">
             <th mat-header-cell *matHeaderCellDef> TELÉFONO</th>
@@ -41,11 +39,32 @@
           <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef> ACTIONS</th>
             <td mat-cell *matCellDef="let element"> 
-              <a href="" class="text-info p-2 fs-4"><i class="fa-solid fa-pencil"></i></a>
-              <a href="" class="text-danger p-2 fs-4"><i class="fa-solid fa-trash-can"></i></a> 
-            </td>
-          </ng-container>
+              <a href="/admin/socios/edit/{{element.socioId}}" class="text-info p-2 fs-4"><i class="fa-solid fa-pencil"></i></a>
+              <a  class="btn basura text-danger p-2 fs-4" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-trash-can"></i></a> 
 
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">¿DESEA ELIMINAR?</h5>
+                      <button type="button" class="btn-close" aria-label="Close" data-dismiss="modal">
+                        
+                      </button>
+                    </div>
+                    <div class="modal-body" style="overflow: hidden;">
+                      No podrá recuperar de nuevo los datos de ninguna manera.
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+                      <button (click) ="deleteSocio(element.socioId)" type="button" class="btn btn-danger" data-dismiss="modal">ELIMINAR</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            
+          </ng-container>
+         
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -59,5 +78,5 @@
         </div>
         
       </div>
-      <a routerLink="/admin/socios/new" class="btn btn-primary align-rigth mt-5">Crear nuevo</a>
+      <a routerLink="/admin/socios/new" class="btn btn-primary align-rigth mt-3">Crear nuevo</a>
 </div>
