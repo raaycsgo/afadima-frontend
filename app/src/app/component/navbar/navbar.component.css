@@ -67,6 +67,7 @@ margin-right: 30px;
   transition:0.5s
 }
 .change {
+  font-family: Montserrat;
   background-color : #872ab8 !important;
   color: white;
   position: fixed;

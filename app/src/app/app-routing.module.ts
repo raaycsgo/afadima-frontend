@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: 'admin/noticias/new', component: NoticiasNewComponent },
   { path: 'admin/noticias', component: NoticiasTablaComponent },
   { path: 'admin/discapacidad', component: DiscapacidadTablaComponent },
-  { path: 'admin/discapacidad/edit/numero', component: DiscapacidadEditComponent },
+  { path: 'admin/discapacidad/edit/:numero', component: DiscapacidadEditComponent },
   { path: 'admin/discapacidad/new', component: DiscapacidadNewComponent },
   { path: 'admin/numerario', component: NumerarioTablaComponent },
   { path: 'admin/numerario/edit/numero', component: NumerarioEditComponent },

@@ -30,7 +30,7 @@ export class SociosNuevoComponent implements OnInit {
     axios.post(this.apiURL + "socios/new", {
         email: this.email,
         password : this.password,
-        rol :["ROL_USER"],
+        rol :["ROLE_USER"],
         name : this.name,
         surnames : this.surnames,
         address : this.address,
