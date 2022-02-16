@@ -11,7 +11,7 @@ import axios from 'axios';
   styleUrls: ['./socios-tabla-prueba.component.css']
 })
 export class SociosTablaPruebaComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'surnames', 'phone', 'email'];
+  displayedColumns: string[] = ['id', 'name', 'surnames', 'phone', 'email','actions'];
   dataSource : any;
   apiUrl:string  = 'http://35.180.22.126:8000/api/';
   socios:any = [];
