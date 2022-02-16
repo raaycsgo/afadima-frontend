@@ -1,10 +1,15 @@
+.footer-content {     
+    font-family:Montserrat;     
+    background-color: #f0f0f0;     
+    position: absolute;     
 
+} 
 
-.footer-content{
-    font-family:Montserrat;
-    background-color: #f0f0f0;
-}
-footer{
-    background-color: #f0f0f0;
+footer {     
+    background-color: #f0f0f0;  
+} 
 
+a {      
+    text-decoration:none;     
+    color: gray; 
 }
