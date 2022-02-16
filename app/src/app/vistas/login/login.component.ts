@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   codeError: number = 0;
   errorMessage: string = '';
   
-  constructor() {}
+  constructor(private router:Router) {}
   
   getUser() {
   
@@ -22,8 +23,9 @@ export class LoginComponent implements OnInit {
         password: this.password 
     })
     .then((response) => {
-        sessionStorage.setItem('token', response.data.token)
+        localStorage.setItem('token', response.data.token);
         this.codeError = 0;
+        this.router.navigate(['noticias']);
     })
     .catch((error) => {
         this.codeError = error.response.data.code;
