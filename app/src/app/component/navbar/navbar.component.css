@@ -3,13 +3,14 @@ body{
 }
 .navbarBody{
   background-color: rgba(255, 255, 255, 0);
-
-
   transition: 1s;
   font-family:Montserrat;
 
 }
 
+#navbarBody {
+  z-index: 5;
+}
 
 
 #logo{
