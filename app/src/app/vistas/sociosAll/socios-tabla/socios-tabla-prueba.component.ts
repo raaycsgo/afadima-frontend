@@ -57,6 +57,7 @@ export class SociosTablaPruebaComponent implements AfterViewInit {
     })
     .catch((error) => {
       this.mensaje = error.response.data.code;
+      console.log(error);
     });
   }
 }

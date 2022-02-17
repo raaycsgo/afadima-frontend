@@ -44,9 +44,6 @@ export class DiscapacidadTablaComponent implements AfterViewInit {
     axios.get(this.apiUrl + 'tipoDiscapacidad').then((response) =>{
       this.dataSource =new MatTableDataSource<any>(response.data)
       this.dataSource.paginator = this.paginator;
-      console.log(response.data);
-      console.log(this.dataSource);
-      console.log(this.socio);
     })
   }
   deleteDiscapacidad(idTipo: number){
@@ -56,7 +53,7 @@ export class DiscapacidadTablaComponent implements AfterViewInit {
       window.location.reload();
     })
     .catch((error) => {
-      this.mensaje = error.response.data.code;
+      console.log(error);
     });
   }
 }
