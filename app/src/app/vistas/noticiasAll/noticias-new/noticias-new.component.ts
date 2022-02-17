@@ -41,7 +41,7 @@ export class NoticiasNewComponent implements OnInit {
   }
 
   getIdSocio(){
-    axios.get(this.apiUrl + 'socios/' + this.tokenDecode().email, {})
+    axios.get(this.apiUrl + 'socios/email' + this.tokenDecode().email, {})
     .then((response) =>{
       this.socioId = response.data.id;
     })
