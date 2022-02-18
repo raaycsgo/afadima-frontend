@@ -33,14 +33,16 @@ export class LoginService {
     }
   }
 
-  getIdSocio() {
-    axios.get(this.apiURL + 'socios/email/' + this.tokenDecode().email, {})
+  async getIdSocio() {
+    return await axios.get(this.apiURL + 'socios/email/' + this.tokenDecode().email, {})
     .then((response) =>{
-      this.socioId = response.data.id;
+      return this.socioId = response.data.id;
     })
   }
 
-  getSocio() {
+  async setSocio() {
+    await this.getIdSocio()
+ 
     axios.get(this.apiURL + 'socios/' + this.socioId, {})
     .then((response) =>{
       this.user = response.data;
@@ -48,9 +50,24 @@ export class LoginService {
     })
   }
 
-  controlRolUser() {
-    if (this.user.rol[0] == 'ROLE_ADMIN' || this.user.rol[0] == 'ROLE_SOCIO') {
+  controlRolUserAdmin() {
+    console.log(this.user.rol);
+    
+    if (this.user.rol[0] != 'ROLE_ADMIN') {
+      console.log('no admin');
       this.router.navigate(['login']);
+    }
+  }
+
+  controlRolUserSocio() {
+    if (this.user.rol[0] != 'ROLE_SOCIO') {
+      this.router.navigate(['login']);
+    }
+  }
+
+  controlRolUser() {
+    if (this.user.rol[0] != 'ROLE_ADMIN' && this.user.rol[0] != 'ROLE_SOCIO') {
+      this.router.navigate(['descarga-usuario']);
     }
   }
 

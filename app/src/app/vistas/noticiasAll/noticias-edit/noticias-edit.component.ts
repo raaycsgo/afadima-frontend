@@ -21,6 +21,9 @@ export class NoticiasEditComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.loginService.setSocio()
+    this.loginService.controlRolUserAdmin()
+
     this._activeRouter.params.subscribe((params: any) => {
       this.numero = params.numero;
     })
