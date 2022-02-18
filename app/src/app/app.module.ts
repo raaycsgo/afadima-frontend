@@ -41,6 +41,7 @@ import { ProductoTablaComponent } from './vistas/productosAll/producto-tabla/pro
 import { ProductoNewComponent } from './vistas/productosAll/producto-new/producto-new.component';
 import { ProductoEditComponent } from './vistas/productosAll/producto-edit/producto-edit.component';
 import { RegisterComponent } from './vistas/register/register.component';
+import { LoginService } from './loginServices/login.service';
 
 
 @NgModule({
@@ -80,17 +81,19 @@ import { RegisterComponent } from './vistas/register/register.component';
   ],
   imports: [
     BrowserModule,
-        BrowserAnimationsModule,
-        FormsModule,
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatFormFieldModule,
-        MatInputModule
+    BrowserAnimationsModule,
+    FormsModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
