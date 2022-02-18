@@ -46,7 +46,7 @@ export class NumerarioTablaComponent implements AfterViewInit {
       this.dataSource.paginator = this.paginator;
     })
   }
-  deleteDiscapacidad(idNumerario: number){
+  deleteNumerario(idNumerario: number){
     axios.delete(this.apiUrl + 'numerarios/' + idNumerario)
     .then((response) => {
       console.log(response);
