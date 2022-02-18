@@ -16,7 +16,7 @@ export class NumerarioTablaComponent implements AfterViewInit {
   socio : string = "";
   mensaje : string = "";
   respuesta : number = 3;
-  displayedColumns: string[] = ['id','name','actions'];
+  displayedColumns: string[] = ['id','name','dni','birthdate','discapacidad','actions'];
   dataSource : any;
   apiUrl:string  = 'http://35.180.22.126:8000/api/';
   socios:any = [];
@@ -41,13 +41,13 @@ export class NumerarioTablaComponent implements AfterViewInit {
     this.getAllSocios()
   }
   getAllSocios(){
-    axios.get(this.apiUrl + 'tipoDiscapacidad').then((response) =>{
+    axios.get(this.apiUrl + 'numerarios').then((response) =>{
       this.dataSource =new MatTableDataSource<any>(response.data)
       this.dataSource.paginator = this.paginator;
     })
   }
-  deleteDiscapacidad(idTipo: number){
-    axios.delete(this.apiUrl + 'tipoDiscapacidad/' + idTipo)
+  deleteDiscapacidad(idNumerario: number){
+    axios.delete(this.apiUrl + 'numerarios/' + idNumerario)
     .then((response) => {
       console.log(response);
       window.location.reload();

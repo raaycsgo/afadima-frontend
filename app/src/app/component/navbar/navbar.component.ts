@@ -26,6 +26,7 @@ export class NavbarComponent implements OnInit {
   itemDrop3 = 'itemDrop';
   itemDrop4 = 'itemDrop';
   itemDrop5 = 'itemDrop';
+  itemDrop6 = 'itemDrop';
 
 
 
@@ -194,6 +195,22 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  hover6() {
+
+    var ancho = window.pageXOffset || document.documentElement.offsetWidth;
+    if (ancho < 992) {
+      this.itemDrop6 = 'itemDropChange';
+    }
+  }
+
+  normal6() {
+
+    var ancho = window.pageXOffset || document.documentElement.offsetWidth;
+    if (ancho < 992) {
+      this.itemDrop6 = 'itemDrop';
+      console.log('works');
+    }
+  }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////pagina-normal////////////////////////////////////////////////
