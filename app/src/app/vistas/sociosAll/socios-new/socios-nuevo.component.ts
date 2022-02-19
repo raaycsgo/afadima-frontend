@@ -26,7 +26,7 @@ export class SociosNuevoComponent implements OnInit {
   constructor(private router:Router, public loginService: LoginService) { }
 
   async ngOnInit() {
-    await this.loginService.getUser().then(response => this.user = response);
+    // await this.loginService.getUser().then(response => this.user = response);
   }
 
   postSocio() {
@@ -42,10 +42,22 @@ export class SociosNuevoComponent implements OnInit {
       numerarioId : null
     })
     .then((response) => {
-      this.router.navigate(['admin/socios']);
+      this.loginService.getUser().then((response) => {
+        this.user = response
+        console.log(localStorage.getItem('token'));
+        
+        if (localStorage.getItem('token') != null) {
+          this.router.navigate(['admin/socios']);
+        }else {
+          this.router.navigate(['login']);
+        }
+      });
+      
+      
     })
     .catch((error) => {
-        this.codeError = error.response.data.code;
+      this.errorMessage = error.response;
+      this.textolleno = 1;
     });
 
   }

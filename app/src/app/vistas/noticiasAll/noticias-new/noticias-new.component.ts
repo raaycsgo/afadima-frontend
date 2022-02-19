@@ -12,7 +12,7 @@ import { LoginService } from '../../../loginServices/login.service';
 export class NoticiasNewComponent implements OnInit {
 
   apiUrl:string  = 'http://35.180.22.126:8000/api/';
-  formData:any;
+  formData:FormData = new FormData();
   title:string = '';
   description:string = '';
   user:any;
@@ -32,7 +32,6 @@ export class NoticiasNewComponent implements OnInit {
       return;
     }
 
-    this.formData = new FormData();
     this.formData.append("image", file[0]);
   }
 
