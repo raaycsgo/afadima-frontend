@@ -40,7 +40,7 @@ export class NoticiasNewComponent implements OnInit {
 
     this.formData.append("title", this.title);
     this.formData.append("description", this.description);
-    this.formData.append("socioId", this.socioId);
+    this.formData.append("socioId", this.user.socioId);
 
     axios.post(this.apiUrl + 'noticias/new', this.formData, {
       headers: {

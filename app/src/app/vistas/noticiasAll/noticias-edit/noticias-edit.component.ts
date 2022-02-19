@@ -11,11 +11,12 @@ import { LoginService } from '../../../loginServices/login.service';
 export class NoticiasEditComponent implements OnInit {
   numero: number = 0;
   apiURL: string = "http://35.180.22.126:8000/api/"
-  noticia:any;
-  formData:any;
+  noticia:any = {};
+  formData:any = new FormData();
   title:string = '';
   description:string = '';
-  socioId:number = 0;
+  errorMensaje : string = '';
+  error: Array<any> = [false, 'alert alert-danger'];
   public user:any;
 
   constructor(private _activeRouter: ActivatedRoute, private router: Router, public loginService: LoginService) { }
@@ -29,6 +30,8 @@ export class NoticiasEditComponent implements OnInit {
     this._activeRouter.params.subscribe((params: any) => {
       this.numero = params.numero;
     })
+
+    this.getIdNoticia()
 
   }
 
@@ -44,7 +47,6 @@ export class NoticiasEditComponent implements OnInit {
       return;
     }
 
-    this.formData = new FormData();
     this.formData.append("image", file[0]);
   }
 
@@ -52,17 +54,19 @@ export class NoticiasEditComponent implements OnInit {
 
     this.formData.append("title", this.title);
     this.formData.append("description", this.description);
-    this.formData.append("socioId", this.socioId);
+    this.formData.append("socioId", this.user.socioId);
     
     axios.post(this.apiURL + 'noticias/' + this.numero + '/edit', this.formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
     }).then((response) =>{
-      console.log(response.data);
+      this.errorMensaje = response.data.status;
+      this.error = [true, 'success']
       this.router.navigate(['noticias']);
     }).catch((error) => {
-      console.log(error.response);
+      this.errorMensaje = error.response.data.message;
+      this.error = [true, 'danger']
     });
    
   }
