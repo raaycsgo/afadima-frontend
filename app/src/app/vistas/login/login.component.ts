@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { Router } from '@angular/router';
+import { LoginService } from './../../loginServices/login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,9 @@ export class LoginComponent implements OnInit {
   password : string = '';
   codeError: number = 0;
   errorMessage: string = '';
+  user:any
   
-  constructor(private router:Router) {}
+  constructor(private router:Router,public loginService: LoginService) {}
   
   getUser() {
   
@@ -25,7 +27,12 @@ export class LoginComponent implements OnInit {
     .then((response) => {
         localStorage.setItem('token', response.data.token);
         this.codeError = 0;
+        
         this.router.navigate(['noticias']);
+        setTimeout(() => {
+          location.reload()
+        }, 100);
+        
     })
     .catch((error) => {
         this.codeError = error.response.data.code;

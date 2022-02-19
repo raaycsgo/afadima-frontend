@@ -14,7 +14,6 @@ export class LoginService {
   apiURL: string = "http://35.180.22.126:8000/api/"
   public user:any;
   socioId:number = 0;
-  userRol:string = ''
 
   getDecodedAccessToken(token: string): any {
     try {
