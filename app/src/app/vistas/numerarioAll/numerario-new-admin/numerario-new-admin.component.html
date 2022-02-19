@@ -52,13 +52,19 @@
 
                                     </div>
                                     <div class="row">
-                                        
+                                        <div class="form-group mb-3 col-md-6">
+                                            <label id="sectionForm" class="form-label" for="form2Example2">SOCIO ASOCIADO</label>
+                                            <input type="email" id="form2Example2" class="form-control"
+                                                placeholder="Escribe el numero del socio" [(ngModel)]="socio" name="socio"
+                                                required />
+                                        </div>
                                         <div class="form-group col-md-6">
                                             <label id="sectionForm" class="form-label">DISCAPACIDAD</label>
                                             <select id="inputState" class="form-select select-rol"
                                                 [(ngModel)]="discapacidad" name="discapacidad">
-
-                                                <option *ngFor="let item of datos" selected class="opciones-formulario"
+                                                <option selected class="opciones-formulario" > </option>
+                        
+                                                <option *ngFor="let item of datos" 
                                                     value="{{item.typeId}}">{{item.name}}</option>
 
 
@@ -76,6 +82,7 @@
                                             type="button">Crear
                                             nuevo numerario</button>
                                     </div>
+
                                 </form>
 
                             </div>

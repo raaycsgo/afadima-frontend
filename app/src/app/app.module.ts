@@ -40,6 +40,7 @@ import { ProductoNewComponent } from './vistas/productosAll/producto-new/product
 import { ProductoEditComponent } from './vistas/productosAll/producto-edit/producto-edit.component';
 import { LoginService } from './loginServices/login.service';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { NumerarioNewAdminComponent } from './vistas/numerarioAll/numerario-new-admin/numerario-new-admin.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     ProductoTablaComponent,
     ProductoNewComponent,
     ProductoEditComponent,
+    NumerarioNewAdminComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import { NoticiasShowComponent } from './vistas/noticiasAll/noticias-show/notici
 import { NoticiasTablaComponent } from './vistas/noticiasAll/noticias-tabla/noticias-tabla.component';
 import { CardsComponent } from './vistas/noticiasAll/noticias/cards.component';
 import { NumerarioEditComponent } from './vistas/numerarioAll/numerario-edit/numerario-edit.component';
+import { NumerarioNewAdminComponent } from './vistas/numerarioAll/numerario-new-admin/numerario-new-admin.component';
 import { NumerarioNewComponent } from './vistas/numerarioAll/numerario-new/numerario-new.component';
 import { NumerarioTablaComponent } from './vistas/numerarioAll/numerario-tabla/numerario-tabla.component';
 import { PaginaUserComponent } from './vistas/pagina-user/pagina-user.component';
@@ -39,9 +40,10 @@ const routes: Routes = [
   { path: 'admin/discapacidad', component: DiscapacidadTablaComponent },
   { path: 'admin/discapacidad/edit/:numero', component: DiscapacidadEditComponent },
   { path: 'admin/discapacidad/new', component: DiscapacidadNewComponent },
+  { path: 'admin/numerario/new', component: NumerarioNewAdminComponent },
   { path: 'admin/numerario', component: NumerarioTablaComponent },
   { path: 'admin/numerario/edit/:numero', component: NumerarioEditComponent },
-  { path: 'admin/numerario/new', component: NumerarioNewComponent },
+  { path: 'numerario/new', component: NumerarioNewComponent },
   { path: 'servicios', component: ServiciosComponent },
   { path: 'servicios/numero', component: ServiciosShowComponent },
   { path: 'admin/servicios/edit/:numero', component: ServiciosEditComponent},
