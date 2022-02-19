@@ -18,6 +18,8 @@ export class NoticiasTablaComponent implements AfterViewInit {
   imagenesUrl:string  = 'http://35.180.22.126:8000/';
   socios:any = [];
   user:any;
+  mensaje:string = '';
+  idDelete:number = 0;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -48,5 +50,23 @@ export class NoticiasTablaComponent implements AfterViewInit {
       this.dataSource =new MatTableDataSource<any>(response.data)
       this.dataSource.paginator = this.paginator;
     })
+  }
+
+  guardarDelete(idDelete:number){
+    this.idDelete = idDelete
+  }
+
+  deleteNoticia(){
+    axios.delete(this.apiUrl + 'noticias/' + this.idDelete)
+    .then((response) => {
+      this.mensaje = response.data
+      console.log(response);
+      
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.log(error);
+      this.mensaje = error.response.data.code;
+    });
   }
 }
