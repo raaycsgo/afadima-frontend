@@ -16,14 +16,16 @@ export class NoticiasEditComponent implements OnInit {
   title:string = '';
   description:string = '';
   socioId:number = 0;
+  public user:any;
 
   constructor(private _activeRouter: ActivatedRoute, private router: Router, public loginService: LoginService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
 
-    this.loginService.setSocio()
-    this.loginService.controlRolUserAdmin()
-
+    await this.loginService.getUser().then(response => this.user = response);
+    this.loginService.controlRolUser();
+    this.loginService.controlRolUserAdmin();
+    
     this._activeRouter.params.subscribe((params: any) => {
       this.numero = params.numero;
     })

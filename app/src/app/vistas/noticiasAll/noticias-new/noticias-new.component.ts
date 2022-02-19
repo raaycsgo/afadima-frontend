@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
+import { LoginService } from '../../../loginServices/login.service';
 
 @Component({
   selector: 'app-noticias-new',
@@ -17,34 +18,12 @@ export class NoticiasNewComponent implements OnInit {
   user:any;
   socioId:number = 0;
 
-  constructor(private router:Router) { }
+  constructor(public loginService: LoginService, private router:Router) { }
 
-  ngOnInit(): void {
-    this.getIdSocio()
-  }
-
-  getDecodedAccessToken(token: string): any {
-    try {
-      return jwt_decode(token);
-    } catch(Error) {
-      return null;
-    }
-  }
-
-  tokenDecode() {
-    if (localStorage.getItem('token') != null) {
-      let token = localStorage.getItem('token');
-      return this.getDecodedAccessToken((token == null) ? '' : token);
-    }else {
-      this.router.navigate(['login']);
-    }
-  }
-
-  getIdSocio(){
-    axios.get(this.apiUrl + 'socios/email/' + this.tokenDecode().email, {})
-    .then((response) =>{
-      this.socioId = response.data.id;
-    })
+  async ngOnInit() {
+    await this.loginService.getUser().then(response => this.user = response);
+    this.loginService.controlRolUser();
+    this.loginService.controlRolUserAdmin();
   }
 
   fileEvent(fileInput: any){

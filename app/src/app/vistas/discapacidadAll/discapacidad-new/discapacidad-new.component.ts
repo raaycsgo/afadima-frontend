@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../../../loginServices/login.service';
 import axios from 'axios';
 
 @Component({
@@ -10,10 +11,16 @@ import axios from 'axios';
 export class DiscapacidadNewComponent implements OnInit {
   name : string ="";
   apiURL : string = " http://35.180.22.126:8000/api/";
+  user:any;
   
-  constructor(private router:Router) { }
+  constructor(private router:Router, public loginService: LoginService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+
+    await this.loginService.getUser().then(response => this.user = response);
+    this.loginService.controlRolUser();
+    this.loginService.controlRolUserSocio();
+
   }
 
   postDiscapacidad(){

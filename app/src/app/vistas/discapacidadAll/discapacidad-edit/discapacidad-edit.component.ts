@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router, RouterEvent } from "@angular/router"
+import { LoginService } from '../../../loginServices/login.service';
 import axios from 'axios';
 
 @Component({
@@ -12,13 +13,19 @@ export class DiscapacidadEditComponent implements OnInit {
   datos : any = "";
   name : string = "";
   apiURL: string = " http://35.180.22.126:8000/api/"
-  constructor(private _activeRouter: ActivatedRoute, private router: Router) { }
-  ngOnInit(): void {
+  user:any;
+  constructor(private _activeRouter: ActivatedRoute, private router: Router, public loginService: LoginService) { }
+  async ngOnInit() {
+    await this.loginService.getUser().then(response => this.user = response);
+    this.loginService.controlRolUser();
+    this.loginService.controlRolUserSocio();
+
     this._activeRouter.params.subscribe((params: any) => {
       this.numero = params.numero;
       console.log(this.numero);
-  })
-  this.getDiscapacidad();
+    })
+
+    this.getDiscapacidad();
   }
   getDiscapacidad() {
     axios.get(this.apiURL + 'tipoDiscapacidad/' + this.numero).then((response) => {

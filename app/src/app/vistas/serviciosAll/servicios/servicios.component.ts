@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../../loginServices/login.service';
 
 @Component({
   selector: 'app-servicios',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servicios.component.css']
 })
 export class ServiciosComponent implements OnInit {
+  
+  user:any;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(public loginService: LoginService) { }
+  
+  async ngOnInit() {
+    await this.loginService.getUser().then(response => this.user = response);
+    this.loginService.controlRolUser();
+    this.loginService.controlRolUserSocio();
   }
 
 }

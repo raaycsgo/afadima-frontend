@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { LoginService } from '../../../loginServices/login.service';
 
 @Component({
   selector: 'app-cards',
@@ -11,10 +12,14 @@ export class CardsComponent implements OnInit {
   apiUrl:string  = 'http://35.180.22.126:8000/api/';
   imagenesUrl:string  = 'http://35.180.22.126:8000/';
   noticias:Array<any> = [];
+  public user:any;
 
-  constructor() { }
+  constructor(public loginService: LoginService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    await this.loginService.getUser().then(response => this.user = response);
+    this.loginService.controlRolUser();
+
     this.getAllNoticias()
   }
 

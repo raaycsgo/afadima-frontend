@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../../loginServices/login.service';
 
 @Component({
   selector: 'app-noticias-show',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoticiasShowComponent implements OnInit {
 
-  constructor() { }
+  user:any;
 
-  ngOnInit(): void {
+  constructor(public loginService: LoginService) { }
+  
+  async ngOnInit() {
+    await this.loginService.getUser().then(response => this.user = response);
+    this.loginService.controlRolUser();
+    this.loginService.controlRolUserSocio();
   }
 
 }

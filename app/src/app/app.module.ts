@@ -16,12 +16,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { UploadImgComponent } from './vistas/upload-img/upload-img.component';
 import { NoticiasNewComponent } from './vistas/noticiasAll/noticias-new/noticias-new.component';
 import { NoticiasTablaComponent } from './vistas/noticiasAll/noticias-tabla/noticias-tabla.component';
 import { NoticiasEditComponent } from './vistas/noticiasAll/noticias-edit/noticias-edit.component';
 import { NoticiasShowComponent } from './vistas/noticiasAll/noticias-show/noticias-show.component';
-import { LogoutComponent } from './vistas/logout/logout.component';
 import { ServiciosComponent } from './vistas/serviciosAll/servicios/servicios.component';
 import { ServiciosShowComponent } from './vistas/serviciosAll/servicios-show/servicios-show.component';
 import { ServiciosTablaComponent } from './vistas/serviciosAll/servicios-tabla/servicios-tabla.component';
@@ -40,7 +38,6 @@ import { ProductoShowComponent } from './vistas/productosAll/producto-show/produ
 import { ProductoTablaComponent } from './vistas/productosAll/producto-tabla/producto-tabla.component';
 import { ProductoNewComponent } from './vistas/productosAll/producto-new/producto-new.component';
 import { ProductoEditComponent } from './vistas/productosAll/producto-edit/producto-edit.component';
-import { RegisterComponent } from './vistas/register/register.component';
 import { LoginService } from './loginServices/login.service';
 
 
@@ -53,12 +50,10 @@ import { LoginService } from './loginServices/login.service';
     NavbarComponent,
     SociosNuevoComponent,
     SociosTablaPruebaComponent,
-    UploadImgComponent,
     NoticiasNewComponent,
     NoticiasTablaComponent,
     NoticiasEditComponent,
     NoticiasShowComponent,
-    LogoutComponent,
     ServiciosComponent,
     ServiciosShowComponent,
     ServiciosTablaComponent,
@@ -77,7 +72,6 @@ import { LoginService } from './loginServices/login.service';
     ProductoTablaComponent,
     ProductoNewComponent,
     ProductoEditComponent,
-    RegisterComponent,
   ],
   imports: [
     BrowserModule,

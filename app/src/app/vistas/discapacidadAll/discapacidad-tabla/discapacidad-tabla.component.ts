@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {Router} from '@angular/router';
 import axios from 'axios';
+import { LoginService } from '../../../loginServices/login.service';
 import { windowCount } from 'rxjs';
 
 @Component({
@@ -21,8 +22,9 @@ export class DiscapacidadTablaComponent implements AfterViewInit {
   apiUrl:string  = 'http://35.180.22.126:8000/api/';
   socios:any = [];
   codeError : string = "";
+  user:any;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, public loginService: LoginService) { }
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   public doFilter = (value: any) => {
@@ -37,7 +39,11 @@ export class DiscapacidadTablaComponent implements AfterViewInit {
     this.dataSource.filter = filterValue;
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    await this.loginService.getUser().then(response => this.user = response);
+    this.loginService.controlRolUser();
+    this.loginService.controlRolUserSocio();
+
     this.getAllSocios()
   }
   getAllSocios(){

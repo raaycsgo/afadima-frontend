@@ -12,7 +12,7 @@ export class LoginService {
   constructor(private _activeRouter: ActivatedRoute, private router: Router){}
   title = 'afadima';
   apiURL: string = "http://35.180.22.126:8000/api/"
-  user:any;
+  public user:any;
   socioId:number = 0;
   userRol:string = ''
 
@@ -40,43 +40,42 @@ export class LoginService {
     })
   }
 
-  async setSocio() {
+  async getSocio() {
     await this.getIdSocio()
- 
-    axios.get(this.apiURL + 'socios/' + this.socioId, {})
-    .then((response) =>{
-      this.user = response.data;
-      this.controlRolUser()
+  
+    return await axios.get(this.apiURL + 'socios/' + this.socioId, {})
+    .then((response) => {
+      return response.data;
+    }).then((data) => {
+      return this.user = data
     })
   }
 
   controlRolUserAdmin() {
-    console.log(this.user.rol);
-    
     if (this.user.rol[0] != 'ROLE_ADMIN') {
-      console.log('no admin');
       this.router.navigate(['login']);
+      setTimeout(() => {
+        alert('No tienes permisos')
+      }, 1000);
+      
     }
   }
 
   controlRolUserSocio() {
-    if (this.user.rol[0] != 'ROLE_SOCIO') {
+    if (this.user.rol[0] != 'ROLE_SOCIO' && this.user.rol[0] != 'ROLE_ADMIN') {
       this.router.navigate(['login']);
     }
   }
 
-  controlRolUser() {
-    if (this.user.rol[0] != 'ROLE_ADMIN' && this.user.rol[0] != 'ROLE_SOCIO') {
+  controlRolUser() {  
+    if (this.user.rol[0] == 'ROLE_USER') {
       this.router.navigate(['descarga-usuario']);
     }
   }
 
-  getUser() {
+  async getUser() {
+    await this.getSocio()
     return this.user
-  }
-
-  getRolUser() {
-    return this.userRol
   }
 
 }

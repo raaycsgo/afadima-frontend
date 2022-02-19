@@ -18,7 +18,6 @@ import { ProductoEditComponent } from './vistas/productosAll/producto-edit/produ
 import { ProductoNewComponent } from './vistas/productosAll/producto-new/producto-new.component';
 import { ProductoShowComponent } from './vistas/productosAll/producto-show/producto-show.component';
 import { ProductoTablaComponent } from './vistas/productosAll/producto-tabla/producto-tabla.component';
-import { RegisterComponent } from './vistas/register/register.component';
 import { ServiciosEditComponent } from './vistas/serviciosAll/servicios-edit/servicios-edit.component';
 import { ServiciosNewComponent } from './vistas/serviciosAll/servicios-new/servicios-new.component';
 import { ServiciosShowComponent } from './vistas/serviciosAll/servicios-show/servicios-show.component';
@@ -31,7 +30,6 @@ import { SociosTablaPruebaComponent } from './vistas/sociosAll/socios-tabla/soci
 const routes: Routes = [
   { path: '', redirectTo:'/login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   { path: 'descarga-usuario', component: PaginaUserComponent },
   { path: 'noticias', component: CardsComponent },
   { path: 'noticias/numero', component: NoticiasShowComponent },

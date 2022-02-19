@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router, RouterEvent } from "@angular/router"
+import { ActivatedRoute, Params, Router, RouterEvent } from "@angular/router";
+import { LoginService } from '../../../loginServices/login.service';
 import axios from 'axios';
+
 @Component({
   selector: 'app-socios-edit',
   templateUrl: './socios-edit.component.html',
   styleUrls: ['./socios-edit.component.css']
 })
+
 export class SociosEditComponent implements OnInit {
   numero: any;
   roles: any =""
@@ -21,15 +24,22 @@ export class SociosEditComponent implements OnInit {
   surnames: string = '';
   password: string = '';
   apiURL: string = " http://35.180.22.126:8000/api/"
-  constructor(private _activeRouter: ActivatedRoute, private router: Router) { }
+  user:any;
 
-  ngOnInit(): void {
+  constructor(private _activeRouter: ActivatedRoute, private router: Router, public loginService: LoginService) { }
+
+  async ngOnInit() {
+
+    await this.loginService.getUser().then(response => this.user = response);
+    this.loginService.controlRolUser();
+    this.loginService.controlRolUserAdmin();
+
     this._activeRouter.params.subscribe((params: any) => {
       this.numero = params.numero;
       console.log(this.numero);
     })
-    this.getAllSocios();
 
+    this.getAllSocios();
   }
   getAllSocios() {
     axios.get(this.apiURL + 'socios/' + this.numero).then((response) => {

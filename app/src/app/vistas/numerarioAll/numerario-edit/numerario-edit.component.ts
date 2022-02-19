@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router, RouterEvent } from "@angular/router"
+import { LoginService } from '../../../loginServices/login.service';
 import axios from 'axios';
 
 @Component({
@@ -21,16 +22,22 @@ export class NumerarioEditComponent implements OnInit {
   name: string = '';
   surnames: string = '';
   apiURL: string = " http://35.180.22.126:8000/api/"
-  constructor(private _activeRouter: ActivatedRoute, private router: Router) { }
+  user:any;
 
-  ngOnInit(): void {
+  constructor(private _activeRouter: ActivatedRoute, private router: Router, public loginService: LoginService) { }
+
+  async ngOnInit() {
+
+    await this.loginService.getUser().then(response => this.user = response);
+    this.loginService.controlRolUser();
+    this.loginService.controlRolUserAdmin();
+
     this._activeRouter.params.subscribe((params: any) => {
       this.numero = params.numero;
       console.log(this.numero);
     })
     this.getAllNumerario();
     this.getAllDiscapacidad();
-
 
   }
   getAllNumerario() {

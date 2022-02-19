@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { LoginService } from '../../../loginServices/login.service';
 import axios from 'axios';
 
 @Component({
@@ -16,6 +17,7 @@ export class NoticiasTablaComponent implements AfterViewInit {
   apiUrl:string  = 'http://35.180.22.126:8000/api/';
   imagenesUrl:string  = 'http://35.180.22.126:8000/';
   socios:any = [];
+  user:any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -31,7 +33,13 @@ export class NoticiasTablaComponent implements AfterViewInit {
     this.dataSource.filter = filterValue;
   }
 
-  ngOnInit(): void {
+  constructor(public loginService: LoginService) { }
+
+  async ngOnInit() {
+    await this.loginService.getUser().then(response => this.user = response);
+    this.loginService.controlRolUser();
+    this.loginService.controlRolUserAdmin();
+
     this.getAllNoticias()
   }
 
