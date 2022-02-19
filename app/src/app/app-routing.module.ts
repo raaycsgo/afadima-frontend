@@ -18,7 +18,6 @@ import { ProductoEditComponent } from './vistas/productosAll/producto-edit/produ
 import { ProductoNewComponent } from './vistas/productosAll/producto-new/producto-new.component';
 import { ProductoShowComponent } from './vistas/productosAll/producto-show/producto-show.component';
 import { ProductoTablaComponent } from './vistas/productosAll/producto-tabla/producto-tabla.component';
-import { RegisterComponent } from './vistas/register/register.component';
 import { ServiciosEditComponent } from './vistas/serviciosAll/servicios-edit/servicios-edit.component';
 import { ServiciosNewComponent } from './vistas/serviciosAll/servicios-new/servicios-new.component';
 import { ServiciosShowComponent } from './vistas/serviciosAll/servicios-show/servicios-show.component';
@@ -31,27 +30,26 @@ import { SociosTablaPruebaComponent } from './vistas/sociosAll/socios-tabla/soci
 const routes: Routes = [
   { path: '', redirectTo:'/login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   { path: 'descarga-usuario', component: PaginaUserComponent },
   { path: 'noticias', component: CardsComponent },
   { path: 'noticias/numero', component: NoticiasShowComponent },
-  { path: 'admin/noticias/edit/numero', component: NoticiasEditComponent },
+  { path: 'admin/noticias/edit/:numero', component: NoticiasEditComponent },
   { path: 'admin/noticias/new', component: NoticiasNewComponent },
   { path: 'admin/noticias', component: NoticiasTablaComponent },
   { path: 'admin/discapacidad', component: DiscapacidadTablaComponent },
-  { path: 'admin/discapacidad/edit/numero', component: DiscapacidadEditComponent },
+  { path: 'admin/discapacidad/edit/:numero', component: DiscapacidadEditComponent },
   { path: 'admin/discapacidad/new', component: DiscapacidadNewComponent },
   { path: 'admin/numerario', component: NumerarioTablaComponent },
-  { path: 'admin/numerario/edit/numero', component: NumerarioEditComponent },
+  { path: 'admin/numerario/edit/:numero', component: NumerarioEditComponent },
   { path: 'admin/numerario/new', component: NumerarioNewComponent },
   { path: 'servicios', component: ServiciosComponent },
   { path: 'servicios/numero', component: ServiciosShowComponent },
-  { path: 'admin/servicios/edit/numero', component: ServiciosEditComponent},
+  { path: 'admin/servicios/edit/:numero', component: ServiciosEditComponent},
   { path: 'admin/servicios/new', component: ServiciosNewComponent},
   { path: 'admin/servicios', component: ServiciosTablaComponent },
   { path: 'admin/socios', component: SociosTablaPruebaComponent },
   { path: 'admin/socios/new', component: SociosNuevoComponent },
-  { path: 'admin/socios/edit', component: SociosEditComponent },
+  { path: 'admin/socios/edit/:numero', component: SociosEditComponent },
   { path: 'productos', component: ProductoCardsComponent },
   { path: 'productos/numero', component: ProductoShowComponent },
   { path: 'admin/productos/edit/numero', component: ProductoEditComponent },

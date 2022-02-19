@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
+import { LoginService } from '../../../loginServices/login.service';
 
 @Component({
   selector: 'app-noticias-new',
@@ -17,34 +18,12 @@ export class NoticiasNewComponent implements OnInit {
   user:any;
   socioId:number = 0;
 
-  constructor(private router:Router) { }
+  constructor(public loginService: LoginService, private router:Router) { }
 
-  ngOnInit(): void {
-    this.getIdSocio()
-  }
-
-  getDecodedAccessToken(token: string): any {
-    try {
-      return jwt_decode(token);
-    } catch(Error) {
-      return null;
-    }
-  }
-
-  tokenDecode() {
-    if (localStorage.getItem('token') != null) {
-      let token = localStorage.getItem('token');
-      return this.getDecodedAccessToken((token == null) ? '' : token);
-    }else {
-      this.router.navigate(['login']);
-    }
-  }
-
-  getIdSocio(){
-    axios.get(this.apiUrl + 'socios/email' + this.tokenDecode().email, {})
-    .then((response) =>{
-      this.socioId = response.data.id;
-    })
+  async ngOnInit() {
+    await this.loginService.getUser().then(response => this.user = response);
+    this.loginService.controlRolUser();
+    this.loginService.controlRolUserAdmin();
   }
 
   fileEvent(fileInput: any){
@@ -63,23 +42,17 @@ export class NoticiasNewComponent implements OnInit {
     this.formData.append("description", this.description);
     this.formData.append("socioId", this.socioId);
 
-    if (localStorage.getItem('token') != null) {
-      axios.post(this.apiUrl + 'noticias/new', this.formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }).then((response) =>{
-        console.log(response.data);
-        this.router.navigate(['noticias']);
-      }).catch((error) => {
-        console.log(error.response);
-      });
-    }else {
-      alert('No has iniciado sesion');
-      setTimeout(() => { 
-        this.router.navigate(['login']);
-      },1500)
-    }
+    axios.post(this.apiUrl + 'noticias/new', this.formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }).then((response) =>{
+      console.log(response.data);
+      this.router.navigate(['noticias']);
+    }).catch((error) => {
+      console.log(error.response);
+    });
+    
   }
 
 }

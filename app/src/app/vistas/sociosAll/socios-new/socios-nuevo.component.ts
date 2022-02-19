@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import {Router} from '@angular/router';
+import { LoginService } from '../../../loginServices/login.service';
+
 
 @Component({
   selector: 'app-socios-nuevo',
@@ -17,37 +20,41 @@ export class SociosNuevoComponent implements OnInit {
   name : string = '';
   surnames : string  = '';
   password : string = '';
+  apiURL : string = " http://35.180.22.126:8000/api/"
+  user:any;
 
+  constructor(private router:Router, public loginService: LoginService) { }
 
+  async ngOnInit() {
+    await this.loginService.getUser().then(response => this.user = response);
+  }
 
-  constructor() { }
-
-   postSocio() {
-     if(this.email == null || this.phone == null|| this.address == null || this.name == null || this.surnames == null || this.password == null){
-      this.textolleno = 1;
-     }
+  postSocio() {
   
-    axios.post('http://35.180.22.126:8000/api/socios/new', {
-        email: this.email,
-        password : this.password,
-        rol :["ROL_USER"],
-        name : this.name,
-        surnames : this.surnames,
-        address : this.address,
-        phone : this.phone,
-        numerarioId : null
-        
+    axios.post(this.apiURL + "socios/new", {
+      email: this.email,
+      password : this.password,
+      rol :["ROLE_USER"],
+      name : this.name,
+      surnames : this.surnames,
+      address : this.address,
+      phone : this.phone,
+      numerarioId : null
     })
     .then((response) => {
-      console.log(response)
-        
+      this.router.navigate(['admin/socios']);
     })
     .catch((error) => {
         this.codeError = error.response.data.code;
-        this.errorMessage = error.response.data.message;
     });
+
   }
-  ngOnInit(): void {
+
+  verificarCampos(){
+    if(this.email == '' || this.phone == ''|| this.address == '' || this.name == '' || this.surnames == '' || this.password == ''){
+      this.textolleno = 1;
+    }
   }
+
 
 }

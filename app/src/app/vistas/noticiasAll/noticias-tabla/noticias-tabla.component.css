@@ -29,4 +29,7 @@ table {
         overflow: hidden;
         vertical-align: middle;
     }
-  
+  .imagen-descrpicion{
+    width: 180px;
+    height: 120px;
+  }

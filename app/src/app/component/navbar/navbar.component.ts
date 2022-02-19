@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router, RouterEvent } from "@angular/router";
+import { LoginService } from './../../loginServices/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   navbarBody = 'navbarBody';
-
-
-
-
   ////////////////////////NAVBARLINKS/////////////////////
   navbarLink = 'navbarLink';
   navbarLink2 = 'navbarLink2';
@@ -18,20 +16,38 @@ export class NavbarComponent implements OnInit {
   navbarLink4 = 'navbarLink4';
 
   arrayObjetos: any[] = ['../assets/navbar/logoafadima.png'];
-
-
   ////////////////////////NAVBAR-ITEM-DROPDOWN/////////////////////
   itemDrop = 'itemDrop';
   itemDrop2 = 'itemDrop';
   itemDrop3 = 'itemDrop';
   itemDrop4 = 'itemDrop';
   itemDrop5 = 'itemDrop';
+  itemDrop6 = 'itemDrop';
 
+  user:any;
+  rolAdmin:boolean = false
+  logoutV:boolean = false
 
+  constructor(public loginService: LoginService, private router: Router) { }
+  
+  async ngOnInit() {
+    await this.loginService.getUser().then(response => this.user = response);
+    if (this.user != null) {
+      this.logoutV = true
+    }
 
-  constructor() {}
+    if (this.user.rol[0] == 'ROLE_ADMIN') {
+      this.rolAdmin = true;
+    }
+    
+  }
 
-
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['login']);
+    this.logoutV = false
+    this.rolAdmin = false;
+  }
 
 
   //////////////////////////////pagina reducida///////////////////////////////////////////////////////////////////
@@ -194,6 +210,22 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  hover6() {
+
+    var ancho = window.pageXOffset || document.documentElement.offsetWidth;
+    if (ancho < 992) {
+      this.itemDrop6 = 'itemDropChange';
+    }
+  }
+
+  normal6() {
+
+    var ancho = window.pageXOffset || document.documentElement.offsetWidth;
+    if (ancho < 992) {
+      this.itemDrop6 = 'itemDrop';
+      console.log('works');
+    }
+  }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////pagina-normal////////////////////////////////////////////////
@@ -224,11 +256,5 @@ export class NavbarComponent implements OnInit {
       this.arrayObjetos = ['../assets/navbar/logoafadima.png'];
     }
   }
-
-
-
-
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ngOnInit(): void {}
 }
 

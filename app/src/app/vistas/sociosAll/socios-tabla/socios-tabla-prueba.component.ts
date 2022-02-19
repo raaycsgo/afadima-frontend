@@ -2,7 +2,10 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {Router} from '@angular/router';
 import axios from 'axios';
+import { windowCount } from 'rxjs';
+import { LoginService } from '../../../loginServices/login.service';
 
 
 @Component({
@@ -11,11 +14,17 @@ import axios from 'axios';
   styleUrls: ['./socios-tabla-prueba.component.css']
 })
 export class SociosTablaPruebaComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'surnames', 'phone', 'email','actions'];
+  socio : string = "";
+  mensaje : string = "";
+  respuesta : number = 3;
+  displayedColumns: string[] = ['actions','id', 'name', 'surnames', 'phone', 'email','address'];
   dataSource : any;
   apiUrl:string  = 'http://35.180.22.126:8000/api/';
   socios:any = [];
+  codeError : string = "";
+  user:any;
 
+  constructor(private router:Router, public loginService: LoginService) { }
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   public doFilter = (value: any) => {
@@ -30,7 +39,11 @@ export class SociosTablaPruebaComponent implements AfterViewInit {
     this.dataSource.filter = filterValue;
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    await this.loginService.getUser().then(response => this.user = response);
+    this.loginService.controlRolUser();
+    this.loginService.controlRolUserAdmin();
+
     this.getAllSocios()
   }
   getAllSocios(){
@@ -38,7 +51,20 @@ export class SociosTablaPruebaComponent implements AfterViewInit {
       this.dataSource =new MatTableDataSource<any>(response.data)
       this.dataSource.paginator = this.paginator;
       console.log(response.data);
+      console.log(this.dataSource);
+      console.log(this.socio);
     })
+  }
+  deleteSocio(idSocio: number){
+    axios.delete(this.apiUrl + 'socios/' + idSocio)
+    .then((response) => {
+      console.log(response);
+      window.location.reload();
+    })
+    .catch((error) => {
+      this.mensaje = error.response.data.code;
+      console.log(error);
+    });
   }
 }
 
