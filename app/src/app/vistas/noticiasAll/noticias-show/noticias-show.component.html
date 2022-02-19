@@ -1,37 +1,37 @@
+<div class="container">
+    <div class="row justify-content-center">
 
-<div class="row justify-content-center">
+        <div class="col-12" style="text-align: center;">
 
-    <div class="col-12" style="text-align: center;">
-    
-        <h2 style="font-family:Montserrat ; margin-top:20px ;">{{noticia.title}}</h2>
-    
-    </div>
-       
-    <div class="row justify-content-center" >
-        <div class="col-12 w-50" style="border: solid;border-color:#872ab8;"></div>
-    </div>
-    
-    <div class="row justify-content-center" >
-        <div class="col-12 justify-content-center d-flex">
-            <img src="{{imagenesUrl+noticia.imgUrl}}" class="img-fluid" style="margin-top:20px">
+            <h2 style="font-family:Montserrat ; margin-top:20px ;text-transform: uppercase">{{noticia.title}}</h2>
+
         </div>
-    </div>
-    
-    <div class="row justify-content-center" >
-        <div style="text-align:justify; width: 75%  ; margin-top:20px" >
-            <p>
-                {{noticia.description}}
-            </p>
-        </div>
-    </div>
 
-    <div class="row justify-content-center" >
-        <div class="text-center fst-italic">
-            <p>
-                Creado por: {{noticia.socioId}}
-            </p>
+        <div class="row justify-content-center">
+            <div class="col-12 w-50" style="border: 1px solid ;border-color:#872ab8;"></div>
         </div>
-    </div>
 
+        <div class="row justify-content-center">
+            <div class="col-12 justify-content-center d-flex">
+                <img src="{{imagenesUrl+noticia.imgUrl}}" class="img-fluid" style="margin-top:20px">
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div style="text-align:justify; width: 75%  ; margin-top:20px">
+                <p>
+                    {{noticia.description}}
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="text-center fst-italic">
+                <p>
+                    Creado por: {{noticia.socioId}}
+                </p>
+            </div>
+        </div>
+
+    </div>
 </div>
-    

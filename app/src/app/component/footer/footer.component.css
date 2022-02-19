@@ -1,22 +1,40 @@
-
-
-.footer-content{
-    font-family:Montserrat;
-    background-color: #f0f0f0;
-
-
-}
 footer{
-    background-color: #f0f0f0;
+    margin-top: 35px;
+    padding-top: 25px;
+    padding-bottom: 30px;
+    
 }
-a{ 
-    text-decoration:none;
-    color: gray;
+li{
+    list-style:none;
+    margin-bottom: 10px;
+    color: black;
+    text-align: left;
+   
 }
+.lista-footer{
+    margin-left: -30px;
+}
+.links-footer{
+    color:black !important;
 
-a:hover{
-    color: #ffa96d;
 }
-.hover:hover{
-    color: #ffa96d;
+.links-footer:hover{
+    color:orange !important;
+    
+}
+.borde{
+    border-top: 1px solid;
+    padding-top: 20px;
+}
+.lista-informacion{
+    margin-left: 60px;
+}
+.lista-servicios{
+    margin-left: 90px;
+}
+.img-footer-logo{
+    width: 8%;
+    text-align: left;
+    margin-left: 40px;
+    margin-top: -20px;
 }

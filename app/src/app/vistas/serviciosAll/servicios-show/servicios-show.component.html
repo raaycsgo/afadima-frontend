@@ -1,1 +1,37 @@
-<p>servicios-show works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-12" style="text-align: center;">
+
+            <h2 style="font-family:Montserrat ; margin-top:20px ;text-transform: uppercase;">{{servicio.name}}</h2>
+
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 w-50" style="border: 1px solid;border-color:#872ab8;"></div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 justify-content-center d-flex">
+                <img src="{{imagenesUrl+servicio.imgUrl}}" class="img-fluid" style="margin-top:20px">
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div style="text-align:justify; width: 75% ; margin-top:20px ; font-family: Poppins;">
+                <p>
+                    {{servicio.description}}
+                </p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="text-center fst-italic">
+                <p>
+                    Creado por: {{servicio.socioId}}
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>

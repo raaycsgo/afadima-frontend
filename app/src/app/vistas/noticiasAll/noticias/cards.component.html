@@ -1,5 +1,5 @@
-<div class="container">
-    <h1 class="text-center">Noticias Afadima</h1>
+<div class="container" style="font-family: Montserrat;">
+    <h1 class="text-center" >Noticias Afadima</h1>
     <hr>
     <div class="row cards-container">
         <div class="col-xl-6 col-md-12 col-sm-12 mt-4" *ngFor="let noticia of noticias">
@@ -8,7 +8,7 @@
                 <div class="card-body text-center">
                     <h5 class="card-title">{{noticia.title}}</h5>
                    <hr class="hr-card">
-                    <p class="card-text">{{noticia.description}}</p>
+                    <p class="card-text" style="font-family: Poppins;">{{noticia.description}}</p>
                     <a routerLink="/noticias/{{noticia.id}}" class="boton-cards ">LEER MAS <i class="fa-solid fa-angle-right"></i></a>
                 </div>
             </div>

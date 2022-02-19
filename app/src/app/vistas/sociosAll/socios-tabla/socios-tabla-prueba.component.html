@@ -36,6 +36,11 @@
             <td mat-cell *matCellDef="let element"> {{element.email}} </td>
           </ng-container>
 
+          <ng-container matColumnDef="numerario">
+            <th mat-header-cell *matHeaderCellDef> NUMERARIO</th>
+            <td mat-cell *matCellDef="let element"> {{element.numerarioId}} </td>
+          </ng-container>
+
           <ng-container matColumnDef="address">
             <th mat-header-cell *matHeaderCellDef> DIRECCIÓN</th>
             <td mat-cell *matCellDef="let element"> {{element.address}} </td>

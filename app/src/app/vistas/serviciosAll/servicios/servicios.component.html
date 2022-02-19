@@ -1,1 +1,17 @@
-<p>servicios works!</p>
+<div class="container">
+    <h1 class="text-center">Servicios Afadima</h1>
+    <hr>
+    <div class="row cards-container">
+        <div class="col-xl-4 col-md-12 col-sm-12 mt-4" *ngFor="let servicio of servicios">
+            <div class="card shadow-sm bg-white rounded" style="width:100%;">
+                <img class="card-img-top" src="{{imagenesUrl+servicio.imgUrl}}" alt="Imagen {{servicio.name}}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{servicio.name}}</h5>
+                   <hr class="hr-card">
+                    <p class="card-text">{{servicio.description}}</p>
+                    <a routerLink="/servicios/{{servicio.id}}" class="boton-cards ">LEER MAS <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

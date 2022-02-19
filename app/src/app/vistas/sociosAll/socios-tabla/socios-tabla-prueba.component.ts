@@ -17,7 +17,7 @@ export class SociosTablaPruebaComponent implements AfterViewInit {
   socio : string = "";
   mensaje : string = "";
   respuesta : number = 3;
-  displayedColumns: string[] = ['actions','id', 'name', 'surnames', 'phone', 'email','address'];
+  displayedColumns: string[] = ['actions','id', 'name', 'surnames', 'phone', 'email','numerario','address'];
   dataSource : any;
   apiUrl:string  = 'http://35.180.22.126:8000/api/';
   socios:any = [];

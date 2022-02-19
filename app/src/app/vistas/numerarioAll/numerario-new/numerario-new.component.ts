@@ -11,16 +11,15 @@ import {Router} from '@angular/router';
 export class NumerarioNewComponent implements OnInit {
 
   datos : any=[];
-  socio : string = '';
   textolleno : number = 0;
   codeError : number = 0;
   errorMessage: string = 'Faltan campos';
   fecha_nac : string = '';
-  address : string = '';
   name : string = '';
   surnames : string  = '';
+  nombre_entero : string = '';
   dni : string = '';
-  discapacidad : string = '';
+  discapacidad : string = "";
   apiURL : string = " http://35.180.22.126:8000/api/"
   user:any;
 
@@ -35,14 +34,18 @@ export class NumerarioNewComponent implements OnInit {
   }
 
   postNumerario() {
-    console.log(this.discapacidad);
-    axios.post(this.apiURL + "numerarios/new", {
+    this.nombre_entero = this.name + " " + this.surnames; 
+    axios.post(this.apiURL + "numerarios/"+this.user.socioId+"/new", {
+      name: this.nombre_entero,
+      dni: this.dni,
+      birthDate: this.fecha_nac,
+      typeDisc: this.discapacidad
     
         
     })
     .then((response) => {
       console.log(response);
-      this.router.navigate(['admin/numerario']);
+      this.router.navigate(['noticias']);
         
     })
     .catch((error) => {
@@ -51,7 +54,7 @@ export class NumerarioNewComponent implements OnInit {
   }
 
   verificarCampos(){
-    if( this.fecha_nac == ''|| this.address == '' || this.name == '' || this.surnames == '' || this.dni == ''){
+    if( this.fecha_nac == ''||  this.name == '' || this.surnames == '' || this.dni == '' ){
       this.textolleno = 1;
       }
   }

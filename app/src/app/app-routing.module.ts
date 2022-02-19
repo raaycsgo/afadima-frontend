@@ -45,7 +45,7 @@ const routes: Routes = [
   { path: 'admin/numerario/edit/:numero', component: NumerarioEditComponent },
   { path: 'numerario/new', component: NumerarioNewComponent },
   { path: 'servicios', component: ServiciosComponent },
-  { path: 'servicios/numero', component: ServiciosShowComponent },
+  { path: 'servicios/:numero', component: ServiciosShowComponent },
   { path: 'admin/servicios/edit/:numero', component: ServiciosEditComponent},
   { path: 'admin/servicios/new', component: ServiciosNewComponent},
   { path: 'admin/servicios', component: ServiciosTablaComponent },

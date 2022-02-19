@@ -63,7 +63,7 @@ export class NoticiasEditComponent implements OnInit {
     }).then((response) =>{
       this.errorMensaje = response.data.status;
       this.error = [true, 'success']
-      this.router.navigate(['noticias']);
+      this.router.navigate(['admin/noticias']);
     }).catch((error) => {
       this.errorMensaje = error.response.data.message;
       this.error = [true, 'danger']
