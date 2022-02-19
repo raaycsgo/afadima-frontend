@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg " id="navbarBody" (window:scroll)="Scroll()" [ngClass]="navbarBody">
   <div class="collapse navbar-collapse" id="navbarCollapse">
-    <a class="navbar-brand" href="#"><img src="{{arrayObjetos[0]}}" id="logo"></a>
+    <a class="navbar-brand" routerLink="noticias"><img src="{{arrayObjetos[0]}}" id="logo"></a>
   </div>
-  <a class="navbar-toggler" href="#"><img src="../assets/navbar/AFADIMA-logo-peque.png" data-toggle="collapse"
+  <a class="navbar-toggler" routerLink="noticias"><img src="../assets/navbar/AFADIMA-logo-peque.png" data-toggle="collapse"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" data-target="#logo"></a>
   <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" id="button">

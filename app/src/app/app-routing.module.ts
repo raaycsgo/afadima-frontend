@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'descarga-usuario', component: PaginaUserComponent },
   { path: 'noticias', component: CardsComponent },
-  { path: 'noticias/numero', component: NoticiasShowComponent },
+  { path: 'noticias/:numero', component: NoticiasShowComponent },
   { path: 'admin/noticias/edit/:numero', component: NoticiasEditComponent },
   { path: 'admin/noticias/new', component: NoticiasNewComponent },
   { path: 'admin/noticias', component: NoticiasTablaComponent },

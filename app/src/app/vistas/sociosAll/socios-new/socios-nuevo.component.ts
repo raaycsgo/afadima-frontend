@@ -15,7 +15,7 @@ export class SociosNuevoComponent implements OnInit {
   codeError : number = 0;
   errorMessage: string = 'Faltan campos';
   email : string = '';
-  phone : string = '';
+  phone : number = 0;
   address : string = '';
   name : string = '';
   surnames : string  = '';
@@ -26,7 +26,7 @@ export class SociosNuevoComponent implements OnInit {
   constructor(private router:Router, public loginService: LoginService) { }
 
   async ngOnInit() {
-    await this.loginService.getUser().then(response => this.user = response);
+    // await this.loginService.getUser().then(response => this.user = response);
   }
 
   postSocio() {
@@ -42,16 +42,31 @@ export class SociosNuevoComponent implements OnInit {
       numerarioId : null
     })
     .then((response) => {
-      this.router.navigate(['admin/socios']);
+      console.log(response.data);
+      if (response.data.status.error == 0) {
+        this.loginService.getUser().then((response) => {
+          this.user = response 
+          if (localStorage.getItem('token') != null) {
+            this.router.navigate(['admin/socios']);
+          }else {
+            this.router.navigate(['login']);
+          }
+        });
+        
+      }else {
+        this.errorMessage = response.data.status.message.toString();
+        this.textolleno = 1;
+      }
     })
     .catch((error) => {
-        this.codeError = error.response.data.code;
+      this.errorMessage = 'Hay un error grave!!';
+      this.textolleno = 1;
     });
 
   }
 
   verificarCampos(){
-    if(this.email == '' || this.phone == ''|| this.address == '' || this.name == '' || this.surnames == '' || this.password == ''){
+    if(this.email == '' || this.phone == 0|| this.address == '' || this.name == '' || this.surnames == '' || this.password == ''){
       this.textolleno = 1;
     }
   }
