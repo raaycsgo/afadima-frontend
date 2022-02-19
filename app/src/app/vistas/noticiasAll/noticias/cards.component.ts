@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+
 import { LoginService } from '../../../loginServices/login.service';
 
 @Component({
@@ -25,7 +26,6 @@ export class CardsComponent implements OnInit {
 
   getAllNoticias(){
     axios.get(this.apiUrl + 'noticias').then((response) =>{
-      console.log(response.data);
       this.noticias = response.data;
     })
   }
