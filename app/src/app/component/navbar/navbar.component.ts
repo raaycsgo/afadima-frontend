@@ -35,24 +35,18 @@ export class NavbarComponent implements OnInit {
     if (this.user != null) {
       this.logoutV = true
     }
-    
-    this.mostrarAdmin()
-  }
 
-  refresh(): void {
-    window.location.reload();
-}
-
-  mostrarAdmin(){
     if (this.user.rol[0] == 'ROLE_ADMIN') {
       this.rolAdmin = true;
     }
+    
   }
 
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['login']);
     this.logoutV = false
+    this.rolAdmin = false;
   }
 
 

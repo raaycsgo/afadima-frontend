@@ -53,24 +53,18 @@ export class NoticiasEditComponent implements OnInit {
     this.formData.append("title", this.title);
     this.formData.append("description", this.description);
     this.formData.append("socioId", this.socioId);
-
-    if (localStorage.getItem('token') != null ) {
-      axios.post(this.apiURL + 'noticias/' + this.numero + '/edit', this.formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }).then((response) =>{
-        console.log(response.data);
-        this.router.navigate(['noticias']);
-      }).catch((error) => {
-        console.log(error.response);
-      });
-    }else {
-      alert('No has iniciado sesion');
-      setTimeout(() => { 
-        this.router.navigate(['login']);
-      },1500)
-    }
+    
+    axios.post(this.apiURL + 'noticias/' + this.numero + '/edit', this.formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }).then((response) =>{
+      console.log(response.data);
+      this.router.navigate(['noticias']);
+    }).catch((error) => {
+      console.log(error.response);
+    });
+   
   }
 
 

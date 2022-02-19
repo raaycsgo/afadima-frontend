@@ -42,23 +42,17 @@ export class NoticiasNewComponent implements OnInit {
     this.formData.append("description", this.description);
     this.formData.append("socioId", this.socioId);
 
-    if (localStorage.getItem('token') != null) {
-      axios.post(this.apiUrl + 'noticias/new', this.formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }).then((response) =>{
-        console.log(response.data);
-        this.router.navigate(['noticias']);
-      }).catch((error) => {
-        console.log(error.response);
-      });
-    }else {
-      alert('No has iniciado sesion');
-      setTimeout(() => { 
-        this.router.navigate(['login']);
-      },1500)
-    }
+    axios.post(this.apiUrl + 'noticias/new', this.formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }).then((response) =>{
+      console.log(response.data);
+      this.router.navigate(['noticias']);
+    }).catch((error) => {
+      console.log(error.response);
+    });
+    
   }
 
 }
