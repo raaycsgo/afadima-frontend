@@ -27,17 +27,28 @@ export class NavbarComponent implements OnInit {
   user:any;
   rolAdmin:boolean = false
   logoutV:boolean = false
+  navV:boolean = false;
 
-  constructor(public loginService: LoginService, private router: Router) { }
+  constructor(public loginService: LoginService, private router: Router) {}
   
   async ngOnInit() {
     await this.loginService.getUser().then(response => this.user = response);
     if (this.user != null) {
       this.logoutV = true
+      this.navV = true
     }
-
+    
     if (this.user.rol[0] == 'ROLE_ADMIN') {
       this.rolAdmin = true;
+      this.navV = true;
+    }
+
+    if (this.user.rol[0] == 'ROLE_SOCIO') {
+      this.navV = true;
+    }
+
+    if (this.user.rol[0] == 'ROLE_USER') {
+      this.navV = false;
     }
     
   }
@@ -47,6 +58,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['login']);
     this.logoutV = false
     this.rolAdmin = false;
+    this.navV = false
   }
 
 

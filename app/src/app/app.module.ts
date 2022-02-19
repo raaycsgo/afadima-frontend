@@ -39,6 +39,7 @@ import { ProductoTablaComponent } from './vistas/productosAll/producto-tabla/pro
 import { ProductoNewComponent } from './vistas/productosAll/producto-new/producto-new.component';
 import { ProductoEditComponent } from './vistas/productosAll/producto-edit/producto-edit.component';
 import { LoginService } from './loginServices/login.service';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -86,6 +87,7 @@ import { LoginService } from './loginServices/login.service';
     MatInputModule
   ],
   providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     LoginService
   ],
   bootstrap: [AppComponent]
