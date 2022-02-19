@@ -29,7 +29,7 @@ export class NumerarioNewComponent implements OnInit {
   async ngOnInit() {
     await this.loginService.getUser().then(response => this.user = response);
     this.loginService.controlRolUser();
-    this.loginService.controlRolUserAdmin();
+    this.loginService.controlRolUserSocio();
 
     this.getAllDiscapacidad();
   }

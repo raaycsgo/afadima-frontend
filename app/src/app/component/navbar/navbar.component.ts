@@ -28,6 +28,7 @@ export class NavbarComponent implements OnInit {
   rolAdmin:boolean = false
   logoutV:boolean = false
   navV:boolean = false;
+  numerarioNew:boolean = true;
 
   constructor(public loginService: LoginService, private router: Router) {}
   
@@ -49,6 +50,10 @@ export class NavbarComponent implements OnInit {
 
     if (this.user.rol[0] == 'ROLE_USER') {
       this.navV = false;
+    }
+
+    if (this.user.numerarioId != null) {
+      this.numerarioNew = false;
     }
     
   }

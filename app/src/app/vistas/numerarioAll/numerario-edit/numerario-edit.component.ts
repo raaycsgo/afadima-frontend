@@ -34,7 +34,6 @@ export class NumerarioEditComponent implements OnInit {
 
     this._activeRouter.params.subscribe((params: any) => {
       this.numero = params.numero;
-      console.log(this.numero);
     })
     this.getAllNumerario();
     this.getAllDiscapacidad();
