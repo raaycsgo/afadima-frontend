@@ -1,0 +1,51 @@
+.cards-container {
+    z-index: 1;
+}
+
+h5.card-title {
+    text-align: center;
+    font-family: montserrat;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+p.card-text {
+    font-family: poppins;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: left !important;
+
+    height: 48px;
+    display: block;
+    display: -webkit-box;
+    line-height: 1;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.boton-cards{
+        text-align: center;
+        font-family: montserrat;
+        color: #af68d4;
+        text-decoration: none;
+        font-style: italic;
+        font-size: 25px;
+
+}
+.boton-cards:hover{
+    
+    color: orange;
+   
+}
+.hr-card{
+   align-self: center;
+   width: 50%;
+   margin: 15px 25% !important;
+   text-align: center;
+   margin-top: -20px;
+}
+img.card-img-top {
+
+    height: 315px;
+    object-fit: cover;
+}

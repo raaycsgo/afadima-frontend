@@ -1,3 +1,6 @@
+#sectionForm{
+    font-family: Montserrat;
+}
 .form-control:focus {
     color: #212529;
     background-color: #fff;

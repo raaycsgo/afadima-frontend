@@ -1,1 +1,17 @@
-<p>producto-cards works!</p>
+<div class="container">
+    <h1 class="text-center">Productos Afadima</h1>
+    <hr>
+    <div class="row cards-container">
+        <div class="col-xl-4 col-md-12 col-sm-12 mt-4" *ngFor="let producto of productos">
+            <div class="card shadow-sm bg-white rounded" style="width:100%;">
+                <img class="card-img-top" src="{{imagenesUrl+producto.imgUrl}}" alt="Imagen {{producto.name}}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{producto.name}}</h5>
+                   <hr class="hr-card">
+                    <p class="card-text">{{producto.description}}</p>
+                    <a routerLink="/productos/{{producto.id}}" class="boton-cards ">LEER MAS <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
