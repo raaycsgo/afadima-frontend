@@ -29,7 +29,7 @@ import { SociosNuevoComponent } from './vistas/sociosAll/socios-new/socios-nuevo
 import { SociosTablaPruebaComponent } from './vistas/sociosAll/socios-tabla/socios-tabla-prueba.component';
 
 const routes: Routes = [
-  { path: '', redirectTo:'/login', pathMatch: 'full'},
+  { path: '', redirectTo:'/noticias', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'descarga-usuario', component: PaginaUserComponent },
   { path: 'noticias', component: CardsComponent },
